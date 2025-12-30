@@ -26,8 +26,8 @@
 - [x] T015 [US3] Verify all other features (docs, homepage, search) remain functional
 
 ## Phase 6: Polish & Cross-Cutting Concerns
-- [ ] T016 Commit all changes with message "feat: remove blog feature"
-- [ ] T017 Update any documentation that references the blog feature
+- [x] T016 Commit all changes with message "feat: remove blog feature"
+- [x] T017 Update any documentation that references the blog feature
 
 ## Dependencies
 - T001 must complete before other tasks to establish baseline
