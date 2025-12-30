@@ -5,7 +5,22 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featureImage {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  .featureImage {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 400px) {
+  .featureImage {
+    max-width: 120px;
+  }
 }

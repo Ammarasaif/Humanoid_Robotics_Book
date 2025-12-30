@@ -1,0 +1,169 @@
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroSection {
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-image: url('/img/humanoid_image.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Particle canvas positioning */
+.particleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Behind the overlay but above the background image */
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+  z-index: 2; /* Above particles but below content */
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3; /* Above overlay and particles */
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+  opacity: 0; /* Initially hidden for animation */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.heroContent.textFadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  opacity: 0; /* Initially hidden for animation */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.heroTitle.textFadeIn {
+  animation: fadeIn 1s ease-out 0.2s forwards; /* Slight delay for staggered effect */
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  opacity: 0; /* Initially hidden for animation */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.heroSubtitle.textFadeIn {
+  animation: fadeIn 1s ease-out 0.4s forwards; /* Slight delay for staggered effect */
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 300ms ease-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.7), /* cyan glow */
+    0 0 30px rgba(0, 191, 255, 0.5); /* expanding light */
+  outline: 2px solid rgba(0, 255, 255, 0.8); /* cyan outline */
+  outline-offset: 2px;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 255, 0.1);
+  z-index: -1;
+  transition: opacity 300ms ease-out;
+  opacity: 0;
+}
+
+.ctaButton:hover::before,
+.ctaButton:focus-visible::before {
+  opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .heroSection {
+    height: 70vh;
+    min-height: 400px;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+
+  .ctaButton {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    height: 60vh;
+    min-height: 350px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+}

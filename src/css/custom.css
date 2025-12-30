@@ -4,27 +4,288 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Professional technical book theme */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #1a365d; /* Dark blue for technical books */
+  --ifm-color-primary-dark: #152a48;
+  --ifm-color-primary-darker: #12223b;
+  --ifm-color-primary-darkest: #0d1727;
+  --ifm-color-primary-light: #224a73;
+  --ifm-color-primary-lighter: #2a5987;
+  --ifm-color-primary-lightest: #3c70a3;
+  --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --ifm-font-size-base: 17px;
+  --ifm-line-height-base: 1.6;
+  --ifm-heading-font-weight: 600;
+
+  /* Spacing */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+
+  /* Content width for readability */
+  --ifm-container-width: 1000px;
+  --ifm-container-width-xl: 1200px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Hero section styling with background image */
+.heroBanner {
+  background-image: url('https://www.imperial.ac.uk/newsarchive/images/main/newseventsimage_1604942070154_mainnews2012_x1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Full viewport height */
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0; /* Remove padding since we're using flex alignment */
+}
+
+/* Semi-transparent overlay for text readability */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+  z-index: 1;
+}
+
+/* Hero content container to sit above the overlay */
+.heroBanner .container {
+  position: relative;
+  z-index: 2; /* Ensure content is above the overlay */
+  color: white; /* Ensure text is white for contrast */
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  width: 100%;
+  padding: 0 2rem; /* Add horizontal padding for content */
+}
+
+/* Hero title styling */
+.hero__title {
+  color: white;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+/* Hero subtitle styling */
+.hero__subtitle {
+  font-size: 1.2rem; /* Reduced from default to improve visual balance */
+  line-height: 1.5;
+  margin-bottom: 1.5rem; /* Increased spacing before the button */
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.4s forwards;
+}
+
+/* Button styling in hero section */
+.hero--primary .button--secondary {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter background for contrast */
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+/* Fade-in animation for hero elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Spacing between elements in hero section */
+.heroBanner .container > * {
+  margin-bottom: 1rem;
+}
+
+.heroBanner .container > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Hover effects for the button */
+.hero--primary .button--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
+  border-color: rgba(255, 255, 255, 0.6); /* Brighter border on hover */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Glow effect on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Dark mode adjustments */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #3182ce; /* Blue for dark mode */
+  --ifm-color-primary-dark: #2c5aa8;
+  --ifm-color-primary-darker: #254a8c;
+  --ifm-color-primary-darkest: #1d3a6f;
+  --ifm-color-primary-light: #4a96e0;
+  --ifm-color-primary-lighter: #63a7e5;
+  --ifm-color-primary-lightest: #7db8ea;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Dark mode background for better readability */
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+}
+
+/* Typography improvements for technical content */
+.docusaurus-markdown-content {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: var(--ifm-line-height-base);
+}
+
+.docusaurus-markdown-content h1,
+.docusaurus-markdown-content h2,
+.docusaurus-markdown-content h3,
+.docusaurus-markdown-content h4,
+.docusaurus-markdown-content h5,
+.docusaurus-markdown-content h6 {
+  font-weight: var(--ifm-heading-font-weight);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.docusaurus-markdown-content h1 {
+  font-size: 2.2rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  padding-bottom: 0.5rem;
+}
+
+.docusaurus-markdown-content h2 {
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-bottom: 0.3rem;
+}
+
+.docusaurus-markdown-content h3 {
+  font-size: 1.5rem;
+}
+
+/* Code block styling for technical content */
+.code-block {
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Blockquote styling for important notes */
+.docusaurus-markdown-content blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Table styling for technical specifications */
+.docusaurus-markdown-content table {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.docusaurus-markdown-content table th,
+.docusaurus-markdown-content table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  text-align: left;
+}
+
+.docusaurus-markdown-content table th {
+  background-color: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+}
+
+/* Link styling */
+.docusaurus-markdown-content a {
+  text-decoration: none;
+}
+
+.docusaurus-markdown-content a:hover {
+  text-decoration: underline;
+}
+
+/* Improved list styling */
+.docusaurus-markdown-content ul,
+.docusaurus-markdown-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.docusaurus-markdown-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Better spacing for code and text */
+.docusaurus-markdown-content p {
+  margin-bottom: 1.2rem;
+}
+
+/* Custom container for exercises and examples */
+.admonition {
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.admonition h5 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Sidebar improvements for technical navigation */
+.menu {
+  font-size: 0.9rem;
+}
+
+.menu__link {
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.menu__link--active {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+/* Content container for better focus */
+.main-wrapper {
+  padding-top: 1rem;
+}
+
+/* Improved code font for technical content */
+.prism-code {
+  font-size: var(--ifm-code-font-size);
+  line-height: 1.5;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+/* Better spacing for technical content */
+.container {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Navigation improvements */
+.navbar {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* Footer for academic/professional appearance */
+.footer {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  margin-top: 3rem;
+  padding-top: 2rem;
 }

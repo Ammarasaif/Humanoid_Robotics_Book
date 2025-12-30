@@ -1,0 +1,77 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  role="img"
+  aria-label="Embodied Intelligence Robot Illustration"
+>
+  <defs>
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0fbff"/>
+      <stop offset="100%" stop-color="#d9f2ff"/>
+    </linearGradient>
+
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <style>
+      .outline { stroke: #0f172a; stroke-width: 5; }
+      .primary { fill: url(#bodyGrad); }
+      .accent { fill: #38bdf8; }
+      .screen { fill: url(#screenGrad); }
+      .soft { fill: #7dd3fc; }
+    </style>
+  </defs>
+
+  <!-- Antenna -->
+  <rect x="118" y="6" rx="6" ry="6" width="20" height="14" class="accent"/>
+  <circle cx="128" cy="6" r="4" class="soft"/>
+
+  <!-- Head -->
+  <rect x="60" y="22" rx="28" ry="28" width="136" height="98"
+        class="primary outline"/>
+
+  <!-- Face screen -->
+  <rect x="86" y="46" rx="16" ry="16" width="84" height="56"
+        class="screen"/>
+
+  <!-- Eyes -->
+  <circle cx="112" cy="74" r="6" class="accent"/>
+  <circle cx="144" cy="74" r="6" class="accent"/>
+
+  <!-- Smile -->
+  <path d="M110 88 Q128 96 146 88"
+        fill="none"
+        stroke="#38bdf8"
+        stroke-width="4"
+        stroke-linecap="round"/>
+
+  <!-- Body -->
+  <rect x="76" y="128" rx="24" ry="24" width="104" height="82"
+        class="primary outline"/>
+
+  <!-- Chest panel -->
+  <rect x="104" y="150" rx="10" ry="10" width="48" height="36"
+        class="accent"/>
+  <circle cx="128" cy="168" r="6" fill="#e0f7ff"/>
+
+  <!-- Left arm -->
+  <rect x="30" y="142" rx="14" ry="14" width="50" height="24"
+        class="primary outline"/>
+  <circle cx="26" cy="154" r="9" class="accent"/>
+
+  <!-- Right arm (wave) -->
+  <g transform="rotate(-20 178 110)">
+    <rect x="176" y="110" rx="14" ry="14" width="50" height="24"
+          class="primary outline"/>
+    <circle cx="230" cy="122" r="9" class="accent"/>
+  </g>
+
+  <!-- Legs -->
+  <rect x="96" y="210" rx="12" ry="12" width="28" height="36"
+        class="primary outline"/>
+  <rect x="132" y="210" rx="12" ry="12" width="28" height="36"
+        class="primary outline"/>
+
+</svg>

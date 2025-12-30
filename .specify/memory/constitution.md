@@ -1,55 +1,61 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# AI-Native Textbook: Physical AI & Humanoid Robotics Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-Driven Development (Non-Negotiable)
+All work must follow the Spec-Kit Plus lifecycle: /sp.specify → /sp.plan → /sp.tasks → implementation. No direct or ad-hoc coding, content writing, or UI changes outside an approved spec.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Incremental & Phase-Based Development
+The project MUST be developed in clearly separated phases. A phase must be fully completed, reviewed, and stabilized before starting the next phase. Future phases must NOT modify or break completed phases unless explicitly specified.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Single Constitution Rule
+This constitution is written ONCE and must remain stable. All future changes are handled through new specifications, not by rewriting this constitution.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Academic Rigor & Technical Accuracy
+All content must be technically accurate, concept-first, and follow APA citation style where references are required. Content must be structured for beginner-to-advanced learning progression.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Phase Boundary Integrity
+Each phase has clearly defined boundaries and constraints. Work in one phase must not cross into future phases. UI customization, RAG, authentication, or personalization are locked to their respective phases.
 
-### [PRINCIPLE_6_NAME]
+### VI. Quality & Safety Guarantees
+Each phase must be independently buildable and deployable. No phase may introduce breaking changes to previous phases. Architecture decisions must be documented in plans. The final system must be suitable for hackathon judging, live demo, and GitHub Pages deployment.
 
+## Development Phases
 
-[PRINCIPLE__DESCRIPTION]
+### PHASE 1 — Core Book Content (Modules & Chapters)
+Goal: Produce high-quality, academically structured course content.
+- Modules are written sequentially, one at a time.
+- Each module contains clearly defined chapters.
+- Content must be technically accurate, concept-first, and beginner-to-advanced.
+- APA citation style must be followed where references are required.
+- Constraint: UI customization, RAG, authentication, or personalization is NOT allowed in this phase.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### PHASE 2 — Custom Book UI (Frontend System)
+Goal: Replace default Docusaurus UI with a sleek, user-friendly, modern reading experience.
+- All UI work must live inside a dedicated /frontend folder.
+- Design must be token-driven (colors, fonts, spacing, typography).
+- The UI must enhance readability, navigation, and learning focus.
+- No content rewriting is allowed in this phase.
+- Constraint: Backend systems (RAG, Auth) are NOT implemented yet.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### PHASE 3 — Integrated RAG Chatbot
+Goal: Embed an AI assistant that answers questions strictly from book content.
+- Use OpenAI Agents / ChatKit SDKs.
+- Use FastAPI for backend.
+- Use Qdrant (Free Tier) for vector storage.
+- Use Neon Serverless Postgres for metadata.
+- The chatbot must support: Full-book Q&A, Q&A based only on user-selected text
+- Constraint: No authentication or personalization logic in this phase.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### PHASE 4 — Authentication & Personalization
+Goal: Personalize the learning experience per user.
+- Implement signup/signin using Better-Auth.
+- Collect user background (software, hardware, robotics level).
+- Enable: Chapter-level personalization (button-based), Urdu translation toggle per chapter
+- Constraint: Personalization must not alter original canonical content. All transformations must be reversible and user-controlled.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices and development approaches. All implementations must verify compliance with phase boundaries and spec-driven development. Any deviation from this constitution requires explicit amendment with proper documentation and approval.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-16 | **Last Amended**: 2025-12-16
